@@ -12,11 +12,11 @@ document.getElementById('request-form').addEventListener('submit', event => {
   const form = event.currentTarget;
   if (!form.reportValidity()) return;
   const data = new FormData(form);
-  const text = ['ЗАПРОС НА ПОДБОР ОБОРУДОВАНИЯ', 'Вектор Сенсор', '', 'Компания / контакт: ' + data.get('company').trim(), 'Почта: ' + data.get('email').trim(), 'Направление: ' + data.get('type'), '', 'Задача:', data.get('task').trim(), '', 'Запрос подготовлен локально. Данные не отправлены.'].join('\r\n');
+  const text = ['ЗАПРОС НА ПОДБОР ОБОРУДОВАНИЯ', 'Сигнал плюс', '', 'Компания / контакт: ' + data.get('company').trim(), 'Почта: ' + data.get('email').trim(), 'Направление: ' + data.get('type'), '', 'Задача:', data.get('task').trim(), '', 'Запрос подготовлен локально. Данные не отправлены.'].join('\r\n');
   const url = URL.createObjectURL(new Blob(['\uFEFF', text], {type: 'text/plain;charset=utf-8'}));
   const link = document.createElement('a');
   link.href = url;
-  link.download = 'vector-sensor-request.txt';
+  link.download = 'signal-plus-request.txt';
   document.body.append(link);
   link.click();
   link.remove();
